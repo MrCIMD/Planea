@@ -18,6 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('account/register', 'UserController@register');
+
+Route::post('account/login', 'UserController@authenticate');
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    /*AÑADE AQUI LAS RUTAS QUE QUIERAS PROTEGER CON JWT*/
+});
 
 Route::apiResources([
     'archive' => 'ArchiveController',
