@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
   public submit(): void {
+    if (this.form.invalid) {
+      return;
+    }
     console.log(this.form.getRawValue());
   }
 }

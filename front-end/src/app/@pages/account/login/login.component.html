@@ -9,14 +9,14 @@
                     <mat-label>Correo electrónico.</mat-label>
                     <input type="email" matInput formControlName="email" />
                     <mat-error>
-                        No se cumplen las condiciones
+                        <app-form-validators [control]="form.controls['email']"></app-form-validators>
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Contraseña.</mat-label>
-                    <input type="password" matInput />
+                    <input type="password" matInput formControlName="password" />
                     <mat-error>
-                        No se cumplen las condiciones
+                        <app-form-validators [control]="form.controls['password']"></app-form-validators>
                     </mat-error>
                 </mat-form-field>
                 <button type="submit" class="d-block m-auto" mat-raised-button color="primary">Entrar</button>

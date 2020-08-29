@@ -1,0 +1,16 @@
+<span *ngIf="control.errors?.required">
+    Este campo es requerido.
+</span>
+<span *ngIf="control.errors?.email">
+    Introduce un correo electrónico valido.
+</span>
+<span *ngIf="control.errors?.maxlength">
+    Este campo requiere máximo
+    {{ control.errors.maxlength.requiredLength }}
+    caracteres.
+</span>
+<span *ngIf="control.errors?.minlength ">
+    Este campo requiere mínimo
+    {{ control.errors.minlength.requiredLength }}
+    caracteres.
+</span>
