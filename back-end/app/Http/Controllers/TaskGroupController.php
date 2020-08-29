@@ -30,6 +30,7 @@ class TaskGroupController extends Controller
         $task_group = new TaskGroup();
         $task_group->id_task = $request->id_task;
         $task_group->id_group = $request->id_group;
+        $task_group->order = $request->order;
         if ($task_group->save()) {
             return response()->json(['success' => true, 'data' => $task_group], 201);
         }

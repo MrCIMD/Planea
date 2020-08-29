@@ -15,8 +15,9 @@ class CreateTaskGroupsTable extends Migration
     {
         Schema::create('task_groups', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_task');
             $table->unsignedBigInteger('id_group');
+            $table->unsignedBigInteger('id_task');
+            $table->integer('order');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
 
