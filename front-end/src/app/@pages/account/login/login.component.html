@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="row">
+    <mat-card class="col-sm-10 col-md-6 m-auto">
+        <mat-card-title>
+            <h2 class="text-center">Inicio de sesión</h2>
+        </mat-card-title>
+        <mat-card-content>
+            <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Correo electrónico.</mat-label>
+                    <input type="email" matInput formControlName="email" />
+                    <mat-error>
+                        No se cumplen las condiciones
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Contraseña.</mat-label>
+                    <input type="password" matInput />
+                    <mat-error>
+                        No se cumplen las condiciones
+                    </mat-error>
+                </mat-form-field>
+                <button type="submit" class="d-block m-auto" mat-raised-button color="primary">Entrar</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
