@@ -1,1 +1,48 @@
-<p>register works!</p>
+<mat-card class="account-form">
+    <mat-card-title>
+        <h2 class="text-center">Crea una nueva cuenta</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Nombre completo.</mat-label>
+                <input type="text" matInput formControlName="name" />
+                <mat-error>
+                    <app-form-validators [control]="form.controls['name']"></app-form-validators>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Correo electrónico.</mat-label>
+                <input type="email" matInput formControlName="email" />
+                <mat-error>
+                    <app-form-validators [control]="form.controls['email']"></app-form-validators>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Contraseña.</mat-label>
+                <input [type]="pass1hide ? 'password' : 'text'" matInput formControlName="password" />
+                <button mat-icon-button matSuffix (click)="pass1hide = !pass1hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="pass1hide">
+                    <mat-icon>{{pass1hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>
+                    <app-form-validators [control]="form.controls['password']"></app-form-validators>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Confirma la contraseña.</mat-label>
+                <input [type]="pass2hide ? 'password' : 'text'" matInput formControlName="password_confirmation" />
+                <button mat-icon-button matSuffix (click)="pass2hide = !pass2hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="pass2hide">
+                    <mat-icon>{{pass2hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>
+                    <app-form-validators [control]="form.controls['password_confirmation']"></app-form-validators>
+                </mat-error>
+            </mat-form-field>
+            <button type="button" class="d-block" mat-flat-button color="link" routerLink="/account/login">¡Ya tengo una
+                cuenta!</button>
+            <button type="submit" class="d-block m-auto" mat-raised-button color="primary">Crear</button>
+        </form>
+    </mat-card-content>
+</mat-card>

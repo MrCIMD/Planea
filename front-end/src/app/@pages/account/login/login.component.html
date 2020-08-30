@@ -1,26 +1,33 @@
-<div class="row">
-    <mat-card class="col-sm-10 col-md-6 m-auto">
-        <mat-card-title>
-            <h2 class="text-center">Inicio de sesión</h2>
-        </mat-card-title>
-        <mat-card-content>
-            <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
-                <mat-form-field class="w-100" appearance="outline">
-                    <mat-label>Correo electrónico.</mat-label>
-                    <input type="email" matInput formControlName="email" />
-                    <mat-error>
-                        <app-form-validators [control]="form.controls['email']"></app-form-validators>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field class="w-100" appearance="outline">
-                    <mat-label>Contraseña.</mat-label>
-                    <input type="password" matInput formControlName="password" />
-                    <mat-error>
-                        <app-form-validators [control]="form.controls['password']"></app-form-validators>
-                    </mat-error>
-                </mat-form-field>
-                <button type="submit" class="d-block m-auto" mat-raised-button color="primary">Entrar</button>
-            </form>
-        </mat-card-content>
-    </mat-card>
-</div>
+<mat-card class="account-form">
+    <mat-card-title>
+        <h2 class="text-center">Inicio de sesión</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Correo electrónico.</mat-label>
+                <input type="email" matInput formControlName="email" />
+                <mat-error>
+                    <app-form-validators [control]="form.controls['email']"></app-form-validators>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Contraseña.</mat-label>
+                <input [type]="pass1hide ? 'password' : 'text'" matInput formControlName="password" />
+                <button mat-icon-button matSuffix (click)="pass1hide = !pass1hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="pass1hide">
+                    <mat-icon>{{pass1hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error>
+                    <app-form-validators [control]="form.controls['password']"></app-form-validators>
+                </mat-error>
+            </mat-form-field>
+            <button type="button" class="d-block" mat-flat-button color="link" routerLink="/account/register">¡Crea
+                una
+                cuenta!</button>
+            <button type="button" class="d-block" mat-flat-button color="link">¿Olvidaste tu
+                contraseña?</button>
+            <button type="submit" class="d-block m-auto" mat-raised-button color="primary">Entrar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -8,3 +8,24 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.bg-account {
+  min-height: 100%;
+  background: url("https://www.creativefabrica.com/wp-content/uploads/2019/06/Instagram-stories-sale-banner-background-by-DEEMKA-STUDIO.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account-form {
+  width: 30rem;
+  margin: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .account-form {
+    width: 80%;
+  }
+}

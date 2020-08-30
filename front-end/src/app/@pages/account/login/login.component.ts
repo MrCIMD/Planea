@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  public pass1hide = true;
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.build_form();
   }
 
@@ -17,8 +19,11 @@ export class LoginComponent implements OnInit {
 
   private build_form(): void {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: [
+        '',
+        [Validators.required, Validators.email, Validators.maxLength(255)],
+      ],
+      password: ['', [Validators.required, Validators.maxLength(255)]],
     });
   }
 
@@ -26,6 +31,6 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    console.log(this.form.getRawValue());
+    this.router.navigate(['/dashboard']);
   }
 }
