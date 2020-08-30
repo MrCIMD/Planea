@@ -1,0 +1,26 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+}
+
+.sidenav {
+  width: 15rem;
+}
+
+.user-panel {
+  padding: 0.5rem;
+}
+
+.user-panel .image {
+  width: 6rem;
+  margin: auto;
+}

@@ -1,2 +1,76 @@
-<p>dashboard works!</p>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Planea</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon">
+        <mat-icon>help_outline</mat-icon>
+    </button>
+    <button mat-icon-button>
+        <mat-icon matBadge="2" matBadgePosition="before" matBadgeOverlap="true" matBadgeColor="warn">chat</mat-icon>
+    </button>
+    <button mat-icon-button>
+        <mat-icon matBadge="7" matBadgePosition="before" matBadgeOverlap="true" matBadgeColor="warn">notifications
+        </mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Configuración</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>new_releases</mat-icon>
+            <span>Plan</span>
+        </button>
+        <button mat-menu-item routerLink="/account/login">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Salir</span>
+        </button>
+    </mat-menu>
+
+</mat-toolbar>
+<mat-drawer-container class="sidenav-container" hasBackdrop="false">
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+        <div class="user-panel">
+            <div class="image">
+                <img src="https://scontent.fmid1-2.fna.fbcdn.net/v/t1.0-1/p200x200/82533185_2198706433594047_823749503029870592_n.jpg?_nc_cat=102&_nc_sid=7206a8&_nc_eui2=AeG0w35Eo0Ny4qCQRuUR_o4HsFYMGHZk1QmwVgwYdmTVCfQqCU0oPI5I9jwCLviPFfFXmvt2hkNhT510Xw7UV_Vm&_nc_ohc=Hud-iOGdwSMAX8KoHvN&_nc_ht=scontent.fmid1-2.fna&tp=6&oh=88404ab3696f38bb850f05b94ac28f95&oe=5F70E109"
+                    alt="Profile" class="rounded-circle w-100 pointer" [matMenuTriggerFor]="menuProfiler">
+            </div>
+            <div class="info">
+                <h3 class="m-0 text-center text-bold" [matMenuTriggerFor]="menuProfiler">Caleb Isaac Mora Díaz</h3>
+                <h4 class="m-0 text-center" [matMenuTriggerFor]="menuProfiler">calexico659@gmail.com</h4>
+            </div>
+        </div>
+        <mat-menu #menuProfiler="matMenu">
+            <button mat-menu-item>
+                <mat-icon>person</mat-icon>
+                <span>Perfil</span>
+            </button>
+            <button mat-menu-item routerLink="/account/login">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Salir</span>
+            </button>
+        </mat-menu>
+        <mat-nav-list>
+            <h3 mat-subheader>Menu</h3>
+            <mat-list-item *ngFor=" let item of listMenu" [routerLink]="item.rute">
+                <a matLine>{{item.action}}</a>
+                <button mat-icon-button>
+                    <mat-icon>{{item.icon}}</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <div class="sidenav-content p-3">
+        <mat-card class="w-100">
+            <mat-card-content>
+                <router-outlet></router-outlet>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</mat-drawer-container>
