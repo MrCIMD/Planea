@@ -12,6 +12,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -39,6 +40,7 @@ import { ReportTaskComponent } from '../../components/report-task/report-task.co
     MatListModule,
     MatDialogModule,
     MatExpansionModule,
+    DragDropModule,
     ChartsModule,
   ],
   exports: [
@@ -58,6 +60,7 @@ import { ReportTaskComponent } from '../../components/report-task/report-task.co
     MatListModule,
     MatDialogModule,
     MatExpansionModule,
+    DragDropModule,
     // Modulos generales
     ChartsModule,
     // Components

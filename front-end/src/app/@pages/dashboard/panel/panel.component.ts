@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreatePanelComponent } from './dialog-create-panel/dialog-create-panel.component';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-panel',
@@ -9,7 +10,12 @@ import { DialogCreatePanelComponent } from './dialog-create-panel/dialog-create-
 })
 export class PanelComponent implements OnInit {
   public step = 0;
-  public list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  public list = [
+    { id: 1, name: 'Appagar' },
+    { id: 2, name: 'Planea' },
+    { id: 3, name: 'Test RIASEC' },
+    { id: 4, name: 'Beky' },
+  ];
 
   constructor(public dialog: MatDialog) {}
 
@@ -23,5 +29,9 @@ export class PanelComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
     });
+  }
+
+  public drop(event: CdkDragDrop<string[]>): void {
+    moveItemInArray(this.list, event.previousIndex, event.currentIndex);
   }
 }

@@ -12,30 +12,32 @@
     </button>
 </div>
 <div>
-    <mat-accordion class="example-headers-align">
-        <mat-expansion-panel>
+    <mat-accordion cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" class="example-headers-align">
+        <mat-expansion-panel class="example-box" *ngFor="let item of list" cdkDrag>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Appagar
+                    ID: {{item.id}} Nombre: {{item.name}}
                 </mat-panel-title>
                 <mat-panel-description>
                     30 de agosto de 2020
-                    <mat-icon>account_circle</mat-icon>
+                    <mat-icon cdkDragHandle class="dragHandle">control_camera</mat-icon>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-
             <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <p class="text-justify">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quo deserunt veniam
+                        provident exercitationem similique perspiciatis ratione tempore officiis amet, ad dolore numquam
+                        dignissimos fuga! In odio blanditiis libero magni.
+                    </p>
+                </div>
                 <div class="col-sm-12 col-md-6">
                     <app-report-task></app-report-task>
                 </div>
-                <div class="col-sm-12 col-md-6"></div>
             </div>
-
-
             <mat-action-row>
                 <button mat-button color="primary">Abrir</button>
             </mat-action-row>
         </mat-expansion-panel>
     </mat-accordion>
-
 </div>
