@@ -18,6 +18,7 @@ class CreateTasksTable extends Migration
             $table->unsignedBigInteger('id_panel');
             $table->string('name');
             $table->string('description');
+            $table->unsignedBigInteger('id_status');
             $table->integer('order');
             $table->unsignedBigInteger('id_progress');
             $table->unsignedBigInteger('id_priority');
@@ -29,6 +30,7 @@ class CreateTasksTable extends Migration
             $table->softDeletes('deleted_at', 0);
 
             $table->foreign('id_panel')->references('id')->on('panels');
+            $table->foreign('id_status')->references('id')->on('task_status');
             $table->foreign('id_progress')->references('id')->on('progress');
             $table->foreign('id_priority')->references('id')->on('priorities');
         });
