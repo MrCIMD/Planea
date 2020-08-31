@@ -29,6 +29,10 @@ body {
   margin: auto;
 }
 
+.header-seccion {
+  display: flex;
+}
+
 @media screen and (max-width: 480px) {
   .account-form {
     width: 80%;

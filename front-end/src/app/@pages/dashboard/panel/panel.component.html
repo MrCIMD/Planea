@@ -1,1 +1,41 @@
-<p>panel works!</p>
+<h2>Proyectos</h2>
+<div class="header-seccion">
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Buscar.</mat-label>
+        <input type="search" matInput />
+        <mat-error>
+            <!-- <app-form-validators [control]="form.controls['name']"></app-form-validators> -->
+        </mat-error>
+    </mat-form-field>
+    <button mat-icon-button (click)="openDialog()" class="my-2 ml-2" title="Nuevo proyecto">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<div>
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Appagar
+                </mat-panel-title>
+                <mat-panel-description>
+                    30 de agosto de 2020
+                    <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <app-report-task></app-report-task>
+                </div>
+                <div class="col-sm-12 col-md-6"></div>
+            </div>
+
+
+            <mat-action-row>
+                <button mat-button color="primary">Abrir</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>

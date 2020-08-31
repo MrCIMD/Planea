@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'panel',
+    path: 'projects',
     loadChildren: () =>
       import('./panel/panel.module').then((m) => m.PanelModule),
   },

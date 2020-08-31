@@ -57,7 +57,7 @@
         </mat-menu>
         <mat-nav-list>
             <h3 mat-subheader>Menu</h3>
-            <mat-list-item *ngFor=" let item of listMenu" [routerLink]="item.rute">
+            <mat-list-item *ngFor=" let item of listMenu" routerLinkActive="active" [routerLink]="item.rute">
                 <a matLine>{{item.action}}</a>
                 <button mat-icon-button>
                     <mat-icon>{{item.icon}}</mat-icon>

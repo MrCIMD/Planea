@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   public listMenu = [
     { action: 'Inicio', rute: '/dashboard', icon: 'home' },
-    { action: 'Panel', rute: '/dashboard/panel', icon: 'work' },
+    { action: 'Proyectos', rute: '/dashboard/projects', icon: 'work' },
   ];
 
   constructor() {}
