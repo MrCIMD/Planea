@@ -4,11 +4,11 @@ import { DialogCreatePanelComponent } from './dialog-create-panel/dialog-create-
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'app-panel',
-  templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.css'],
+  selector: 'app-project',
+  templateUrl: './project.component.html',
+  styleUrls: ['./project.component.css'],
 })
-export class PanelComponent implements OnInit {
+export class ProjectComponent implements OnInit {
   public step = 0;
   public list = [
     { id: 1, name: 'Appagar' },

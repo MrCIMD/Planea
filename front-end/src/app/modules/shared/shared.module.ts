@@ -16,13 +16,18 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { ChartsModule } from 'ng2-charts';
-
 import { FormValidatorsComponent } from '../../components/form-validators/form-validators.component';
 import { ReportTaskComponent } from '../../components/report-task/report-task.component';
+import { AvatarComponent } from '../../components/avatar/avatar.component';
+import { AvatarPipe } from '../../pipes/avatar.pipe';
 
 @NgModule({
-  declarations: [FormValidatorsComponent, ReportTaskComponent],
+  declarations: [
+    FormValidatorsComponent,
+    ReportTaskComponent,
+    AvatarComponent,
+    AvatarPipe,
+  ],
   imports: [
     // Angular Modules
     CommonModule,
@@ -41,7 +46,6 @@ import { ReportTaskComponent } from '../../components/report-task/report-task.co
     MatDialogModule,
     MatExpansionModule,
     DragDropModule,
-    ChartsModule,
   ],
   exports: [
     // Angular Modules
@@ -62,10 +66,13 @@ import { ReportTaskComponent } from '../../components/report-task/report-task.co
     MatExpansionModule,
     DragDropModule,
     // Modulos generales
-    ChartsModule,
+
     // Components
     FormValidatorsComponent,
     ReportTaskComponent,
+    AvatarComponent,
+    // Pipes
+    AvatarPipe,
   ],
 })
 export class SharedModule {}

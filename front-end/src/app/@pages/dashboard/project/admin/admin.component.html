@@ -1,0 +1,24 @@
+<mat-toolbar-row>
+    <span>
+        <app-avatar [name]="'Appagar'"></app-avatar>
+    </span>
+    <h3 class="mx-2 my-4">Appagar</h3>
+    <span class="spacer"></span>
+    <button mat-icon-button title="Panel" routerLink="/dashboard/projects/1" routerLinkActive="menu-active">
+        <mat-icon>dashboard</mat-icon>
+    </button>
+    <button mat-icon-button title="Calendario">
+        <mat-icon>calendar_today</mat-icon>
+    </button>
+    <button mat-icon-button title="Reporres">
+        <mat-icon>donut_large</mat-icon>
+    </button>
+    <button mat-icon-button title="Miembros">
+        <mat-icon>people</mat-icon>
+    </button>
+    <button mat-icon-button title="Configuración">
+        <mat-icon>settings</mat-icon>
+    </button>
+</mat-toolbar-row>
+<mat-divider></mat-divider>
+<router-outlet></router-outlet>

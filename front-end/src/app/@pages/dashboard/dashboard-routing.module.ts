@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren: () =>
-      import('./panel/panel.module').then((m) => m.PanelModule),
+      import('./project/project.module').then((m) => m.ProjectModule),
   },
 ];
 
