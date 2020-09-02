@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -46,6 +47,7 @@ import { AvatarPipe } from '../../pipes/avatar.pipe';
     MatDialogModule,
     MatExpansionModule,
     DragDropModule,
+    MatTabsModule,
   ],
   exports: [
     // Angular Modules
@@ -65,6 +67,7 @@ import { AvatarPipe } from '../../pipes/avatar.pipe';
     MatDialogModule,
     MatExpansionModule,
     DragDropModule,
+    MatTabsModule,
     // Modulos generales
 
     // Components

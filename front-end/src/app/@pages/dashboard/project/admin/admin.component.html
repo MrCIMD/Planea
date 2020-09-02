@@ -4,19 +4,21 @@
     </span>
     <h3 class="mx-2 my-4">Appagar</h3>
     <span class="spacer"></span>
-    <button mat-icon-button title="Panel" routerLink="/dashboard/projects/1" routerLinkActive="menu-active">
+    <button mat-icon-button title="Panel" routerLink="/dashboard/projects/1/panel" routerLinkActive="menu-active">
         <mat-icon>dashboard</mat-icon>
     </button>
-    <button mat-icon-button title="Calendario">
+    <button mat-icon-button title="Calendario" routerLink="/dashboard/projects/1/calendar"
+        routerLinkActive="menu-active">
         <mat-icon>calendar_today</mat-icon>
     </button>
-    <button mat-icon-button title="Reporres">
+    <button mat-icon-button title="Reporres" routerLink="/dashboard/projects/1/reports" routerLinkActive="menu-active">
         <mat-icon>donut_large</mat-icon>
     </button>
-    <button mat-icon-button title="Miembros">
+    <button mat-icon-button title="Miembros" routerLink="/dashboard/projects/1/members" routerLinkActive="menu-active">
         <mat-icon>people</mat-icon>
     </button>
-    <button mat-icon-button title="Configuración">
+    <button mat-icon-button title="Configuración" routerLink="/dashboard/projects/1/project-configuration"
+        routerLinkActive="menu-active">
         <mat-icon>settings</mat-icon>
     </button>
 </mat-toolbar-row>
