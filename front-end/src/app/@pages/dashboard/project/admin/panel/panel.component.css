@@ -1,0 +1,31 @@
+.list-panel {
+  outline: 0;
+  padding: 0.9px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex: 1 1 0px;
+  min-height: 0;
+  min-width: 0;
+  height: 71.4vh;
+  scroll-behavior: smooth;
+}
+.list-item-panel {
+  flex: 0 0 18rem;
+  outline: 0;
+  padding: 0 0.5rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  box-sizing: content-box;
+}
+input[disabled] {
+  color: #777;
+}
+/* 
+.header-container-box {
+  cursor: move;
+} */

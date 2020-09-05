@@ -11,7 +11,7 @@
         <mat-icon>add</mat-icon>
     </button>
 </div>
-<mat-accordion cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" class="example-headers-align">
+<mat-accordion cdkDropList class="example-list example-headers-align" (cdkDropListDropped)="drop($event)">
     <mat-expansion-panel class="example-box" *ngFor="let item of list" cdkDrag>
         <mat-expansion-panel-header>
             <mat-panel-title>

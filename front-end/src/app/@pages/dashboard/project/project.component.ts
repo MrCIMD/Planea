@@ -27,7 +27,9 @@ export class ProjectComponent implements OnInit {
       data: { name: '', description: '' },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
+      if (result) {
+        console.log(result);
+      }
     });
   }
 
