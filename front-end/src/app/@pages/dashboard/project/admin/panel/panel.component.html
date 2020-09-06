@@ -1,24 +1,37 @@
-<ul #scroll class="list-panel mt-3">
-    <li class="list-item-panel mr-2" *ngFor="let group of list; let i = index">
-        <mat-form-field appearance="legacy" class="panel-name w-100">
-            <input matInput [(ngModel)]="group.name" [disabled]="!group.edit" (focusout)="save(group)">
-            <button mat-icon-button matSuffix [matMenuTriggerFor]="menu">
-                <mat-icon>arrow_drop_down</mat-icon>
+<ul #scroll cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)"
+    class="list-panel mt-2 example-list">
+    <li class="list-item-panel mr-2 example-box" *ngFor="let group of list; let i = index" cdkDrag>
+        <div class="header-panel-group">
+            <mat-form-field aaddppearance="legacy" class="w-100">
+                <input matInput [(ngModel)]="group.name" [disabled]="!group.edit" (focusout)="save(group)">
+                <button mat-icon-button matSuffix cdkDragHandle class="btn-move-group">
+                    <mat-icon>control_camera</mat-icon>
+                </button>
+                <button mat-icon-button matSuffix [matMenuTriggerFor]=" menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="group.edit = !group.edit">
+                    <mat-icon>edit</mat-icon>
+                    <span>Editar</span>
+                </button>
+                <button mat-menu-item (click)="delete(i)">
+                    <mat-icon>delete</mat-icon>
+                    <span>Eliminar</span>
+                </button>
+            </mat-menu>
+            <button mat-stroked-button class="text-left w-100">
+                <mat-icon>add</mat-icon>
+                Crear tarea
             </button>
-        </mat-form-field>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="group.edit = !group.edit">
-                <mat-icon>edit</mat-icon>
-                <span>Editar</span>
-            </button>
-            <button mat-menu-item (click)="delete(i)">
-                <mat-icon>delete</mat-icon>
-                <span>Eliminar</span>
-            </button>
-        </mat-menu>
+        </div>
+        <div class="body-panel-group mt-2">
+            <mat-card class="mt-2">Simple card</mat-card>
+        </div>
     </li>
-    <li class="list-item-panel mr-2">
-        <button mat-raised-button class="text-left" (click)="openDialog()">
+    <li class="list-item-panel mr-2 no-border">
+        <button mat-stroked-button class="text-left" (click)="openDialog()">
             <mat-icon>add</mat-icon>
             Crear grupo
         </button>

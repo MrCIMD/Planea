@@ -9,6 +9,9 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   overflow: hidden;
 }
+.no-border {
+  border: none !important;
+}
 
 .spacer {
   flex: 1 1 auto;
@@ -41,6 +44,11 @@ body {
   .account-form {
     width: 80%;
   }
+}
+
+/* Override clases */
+.mat-toolbar {
+  height: 3.25rem !important;
 }
 
 /* Drag And Drop */

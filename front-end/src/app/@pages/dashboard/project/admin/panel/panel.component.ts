@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateGroupComponent } from './dialog-create-group/dialog-create-group.component';
-// import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-panel',
@@ -52,7 +52,7 @@ export class PanelComponent implements OnInit {
     });
   }
 
-  // public drop(event: CdkDragDrop<string[]>): void {
-  //   moveItemInArray(this.list, event.previousIndex, event.currentIndex);
-  // }
+  public drop(event: CdkDragDrop<string[]>): void {
+    moveItemInArray(this.list, event.previousIndex, event.currentIndex);
+  }
 }

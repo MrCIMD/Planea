@@ -1,18 +1,18 @@
 .list-panel {
-  outline: 0;
-  padding: 0.9px;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  background: white;
+  border-radius: 4px;
   overflow-x: auto;
   overflow-y: hidden;
-  flex: 1 1 0px;
-  min-height: 0;
-  min-width: 0;
-  height: 71.4vh;
+  height: 75.7vh;
   scroll-behavior: smooth;
+  padding: 0;
 }
 .list-item-panel {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   flex: 0 0 18rem;
   outline: 0;
   padding: 0 0.5rem;
@@ -22,8 +22,21 @@
   flex-wrap: nowrap;
   box-sizing: content-box;
 }
+.body-panel-group {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.move-group {
+  position: relative;
+}
+
 input[disabled] {
   color: #777;
+}
+
+.btn-move-group {
+  cursor: move;
+  z-index: 1000;
 }
 /* 
 .header-container-box {
