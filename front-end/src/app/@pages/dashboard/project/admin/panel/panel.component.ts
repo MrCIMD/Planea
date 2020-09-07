@@ -9,8 +9,26 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./panel.component.css'],
 })
 export class PanelComponent implements OnInit {
-  @ViewChild('scroll') private scroll: ElementRef;
-  public list = [{ id: 1, name: 'Fase 1 - Analísis', order: 1, edit: false }];
+  public list = [
+    {
+      id: 1,
+      name: 'Fase 1 - Analísis',
+      order: 1,
+      edit: false,
+      list_task: [
+        {
+          name: 'Tarea',
+          description: 'Descripcion de la tarea',
+          finished: false,
+        },
+        {
+          name: 'Otra tarea diferente',
+          description: 'Reparar los componentes',
+          finished: true,
+        },
+      ],
+    },
+  ];
 
   constructor(public dialog: MatDialog) {}
 
@@ -27,7 +45,7 @@ export class PanelComponent implements OnInit {
     console.log(this.list);
   }
 
-  public openDialog(): void {
+  public openDialogCreateGroup(): void {
     const dialogRef = this.dialog.open(DialogCreateGroupComponent, {
       width: '30rem',
       data: { name: '' },
@@ -39,16 +57,10 @@ export class PanelComponent implements OnInit {
           name: result.name,
           order: this.list.length + 1,
           edit: false,
+          list_task: [],
         });
-        this.scrollFinished();
         console.log(result);
       }
-    });
-  }
-
-  private scrollFinished(): void {
-    this.scroll.nativeElement.scroll({
-      left: this.scroll.nativeElement.scrollLeft + 200,
     });
   }
 

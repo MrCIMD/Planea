@@ -4,6 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'app-avatar',
   template: `
     <div
+      [title]="name"
       [class]="'shadow ' + type"
       [ngStyle]="{
         width: size + 'rem',

@@ -14,6 +14,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -48,6 +54,13 @@ import { AvatarPipe } from '../../pipes/avatar.pipe';
     MatExpansionModule,
     DragDropModule,
     MatTabsModule,
+    MatCheckboxModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatAutocompleteModule,
   ],
   exports: [
     // Angular Modules
@@ -68,6 +81,13 @@ import { AvatarPipe } from '../../pipes/avatar.pipe';
     MatExpansionModule,
     DragDropModule,
     MatTabsModule,
+    MatCheckboxModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatAutocompleteModule,
     // Modulos generales
 
     // Components

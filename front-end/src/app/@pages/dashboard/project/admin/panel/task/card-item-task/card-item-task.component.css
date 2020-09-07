@@ -1,0 +1,9 @@
+.card-item-task {
+  width: 96%;
+  margin: auto;
+  cursor: pointer;
+  z-index: 100;
+}
+.card-title {
+  font-size: 0.9rem;
+}

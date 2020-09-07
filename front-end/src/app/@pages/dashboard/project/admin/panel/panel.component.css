@@ -25,6 +25,7 @@
 .body-panel-group {
   overflow-x: hidden;
   overflow-y: auto;
+  height: 70vh;
 }
 .move-group {
   position: relative;

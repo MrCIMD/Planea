@@ -1,4 +1,4 @@
-<ul #scroll cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)"
+<ul cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)"
     class="list-panel mt-2 example-list">
     <li class="list-item-panel mr-2 example-box" *ngFor="let group of list; let i = index" cdkDrag>
         <div class="header-panel-group">
@@ -27,11 +27,12 @@
             </button>
         </div>
         <div class="body-panel-group mt-2">
-            <mat-card class="mt-2">Simple card</mat-card>
+            <app-card-item-task *ngFor="let item of group.list_task" [task]="item">
+            </app-card-item-task>
         </div>
     </li>
     <li class="list-item-panel mr-2 no-border">
-        <button mat-stroked-button class="text-left" (click)="openDialog()">
+        <button mat-stroked-button class="text-left" (click)="openDialogCreateGroup()">
             <mat-icon>add</mat-icon>
             Crear grupo
         </button>
