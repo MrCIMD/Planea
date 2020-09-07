@@ -21,7 +21,9 @@ class UserController extends Controller
         } catch (JWTException $e) {
             return response()->json(['error' => 'No se pudo crear el token'], 500);
         }
-        return response()->json(compact('token'));
+        $user = JWTAuth::user();
+        // return response()->json(compact('token'));
+        return response()->json(compact('user','token'),200);
     }
 
     public function getAuthenticatedUser()
