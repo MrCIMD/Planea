@@ -32,8 +32,6 @@ export class AuthService {
   }
 
   public saveToken(token: Token): void {
-    const date = new Date(token.expiration);
-    console.log(date.getDate());
     localStorage.setItem('auth', JSON.stringify(token));
   }
 

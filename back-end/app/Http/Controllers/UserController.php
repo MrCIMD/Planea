@@ -94,7 +94,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     private function buildToken($token, $user){
-        $expiration = JWTAuth::setToken($token)->getPayload()->get('exp');
+        $expiration = JWTAuth::setToken($token)->getPayload()->get('exp')*1000;
         return response()->json(compact('user','token', 'expiration'),200);
     }
 }

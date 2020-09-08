@@ -13,9 +13,12 @@ export class DashboardComponent implements OnInit {
     { action: 'Proyectos', rute: '/dashboard/projects', icon: 'work' },
   ];
 
-  constructor(private router: Router, private auth: AuthService) {}
+  constructor(private router: Router, public auth: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const token = this.auth.getToken();
+    console.log(new Date(token.expiration));
+  }
 
   public logout(): void {
     this.auth.logout().subscribe(
