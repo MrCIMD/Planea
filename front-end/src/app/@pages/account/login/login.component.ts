@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
+import { Token } from '../../../models/token.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +11,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public pass1hide = true;
+  public message: string;
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router
+  ) {
     this.build_form();
   }
 
@@ -31,6 +38,17 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.router.navigate(['/dashboard']);
+    this.form.disable();
+    this.auth.login(this.form.getRawValue()).subscribe(
+      (token: Token) => {
+        console.clear();
+        this.auth.saveToken(token);
+        this.router.navigate(['/dashboard']);
+      },
+      (log) => {
+        this.message = log.error.error;
+        this.form.enable();
+      }
+    );
   }
 }

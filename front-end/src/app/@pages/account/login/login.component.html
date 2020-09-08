@@ -22,12 +22,15 @@
                     <app-form-validators [control]="form.controls['password']"></app-form-validators>
                 </mat-error>
             </mat-form-field>
+            <mat-error *ngIf="message">{{message}}</mat-error>
             <button type="button" class="d-block" mat-flat-button color="link" routerLink="/account/register">¡Crea
                 una
                 cuenta!</button>
             <button type="button" class="d-block" mat-flat-button color="link">¿Olvidaste tu
                 contraseña?</button>
-            <button type="submit" class="d-block m-auto" mat-raised-button color="primary">Entrar</button>
+            <button type="submit" class="d-block m-auto" *ngIf="!form.disabled" mat-raised-button
+                color="primary">Entrar</button>
+            <mat-spinner class="m-auto" *ngIf="form.disabled"></mat-spinner>
         </form>
     </mat-card-content>
 </mat-card>

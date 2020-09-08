@@ -11,7 +11,5 @@ export class FormValidatorsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.control.errors);
-  }
+  ngOnInit(): void {}
 }

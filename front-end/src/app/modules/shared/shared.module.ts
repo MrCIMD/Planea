@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -27,6 +28,7 @@ import { FormValidatorsComponent } from '../../components/form-validators/form-v
 import { ReportTaskComponent } from '../../components/report-task/report-task.component';
 import { AvatarComponent } from '../../components/avatar/avatar.component';
 import { AvatarPipe } from '../../pipes/avatar.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { AvatarPipe } from '../../pipes/avatar.pipe';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     // Material Modules
     MatCardModule,
     MatButtonModule,
@@ -61,12 +64,14 @@ import { AvatarPipe } from '../../pipes/avatar.pipe';
     MatNativeDateModule,
     MatMomentDateModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     // Angular Modules
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     // Material Modules
     MatCardModule,
     MatButtonModule,
@@ -88,6 +93,7 @@ import { AvatarPipe } from '../../pipes/avatar.pipe';
     MatNativeDateModule,
     MatMomentDateModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
     // Modulos generales
 
     // Components
