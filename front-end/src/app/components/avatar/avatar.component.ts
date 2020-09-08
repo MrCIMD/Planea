@@ -27,6 +27,7 @@ import { Component, OnInit, Input } from '@angular/core';
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: auto;
       }
       .square {
         border-radius: 3px;

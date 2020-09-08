@@ -35,15 +35,13 @@
 </mat-toolbar>
 <mat-drawer-container class="sidenav-container" hasBackdrop="false">
     <mat-drawer #drawer class="sidenav" mode="side" opened>
-        <div class="user-panel">
-            <div class="image">
-                <img src="https://scontent.fmid1-2.fna.fbcdn.net/v/t1.0-1/p200x200/82533185_2198706433594047_823749503029870592_n.jpg?_nc_cat=102&_nc_sid=7206a8&_nc_eui2=AeG0w35Eo0Ny4qCQRuUR_o4HsFYMGHZk1QmwVgwYdmTVCfQqCU0oPI5I9jwCLviPFfFXmvt2hkNhT510Xw7UV_Vm&_nc_ohc=Hud-iOGdwSMAX8KoHvN&_nc_ht=scontent.fmid1-2.fna&tp=6&oh=88404ab3696f38bb850f05b94ac28f95&oe=5F70E109"
-                    alt="Profile" class="rounded-circle w-100 pointer" [matMenuTriggerFor]="menuProfiler">
-            </div>
-            <div class="info">
-                <h3 class="m-0 text-center text-bold" [matMenuTriggerFor]="menuProfiler">Caleb Isaac Mora Díaz</h3>
-                <h4 class="m-0 text-center" [matMenuTriggerFor]="menuProfiler">calexico659@gmail.com</h4>
-            </div>
+        <div class="w-100 pt-2 px-2">
+            <app-avatar class="m-auto pointer" [name]="auth.getToken().user.name" [matMenuTriggerFor]="menuProfiler"
+                type="circle" size="5"></app-avatar>
+        </div>
+        <div class="info">
+            <h3 class="m-0 text-center text-bold" [matMenuTriggerFor]="menuProfiler">{{auth.getToken().user.name}}</h3>
+            <h4 class="m-0 text-center" [matMenuTriggerFor]="menuProfiler">{{auth.getToken().user.email}}</h4>
         </div>
         <mat-menu #menuProfiler="matMenu">
             <button mat-menu-item>

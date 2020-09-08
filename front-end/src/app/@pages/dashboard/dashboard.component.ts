@@ -15,10 +15,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router: Router, public auth: AuthService) {}
 
-  ngOnInit(): void {
-    const token = this.auth.getToken();
-    console.log(new Date(token.expiration));
-  }
+  ngOnInit(): void {}
 
   public logout(): void {
     this.auth.logout().subscribe(
