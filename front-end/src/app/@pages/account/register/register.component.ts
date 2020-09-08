@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ValidatorsService } from '../../../services/validators.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+import { Token } from '../../../models/token.model';
 
 @Component({
   selector: 'app-register',
@@ -12,10 +14,12 @@ export class RegisterComponent implements OnInit {
   public pass1hide = true;
   public pass2hide = true;
   public form: FormGroup;
+  public message: string;
 
   constructor(
     private fb: FormBuilder,
     private validatorsService: ValidatorsService,
+    private auth: AuthService,
     private router: Router
   ) {
     this.build_form();
@@ -38,7 +42,14 @@ export class RegisterComponent implements OnInit {
           '',
           [Validators.required, Validators.email, Validators.maxLength(255)],
         ],
-        password: ['', [Validators.required, Validators.maxLength(255)]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.maxLength(255),
+            Validators.minLength(8),
+          ],
+        ],
         password_confirmation: [
           '',
           [Validators.required, Validators.maxLength(255)],
@@ -57,6 +68,17 @@ export class RegisterComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.router.navigate(['/dashboard']);
+    this.form.disable();
+    this.auth.register(this.form.getRawValue()).subscribe(
+      (token: Token) => {
+        console.clear();
+        this.auth.saveToken(token);
+        this.router.navigate(['/dashboard']);
+      },
+      (log) => {
+        this.message = log.error.error;
+        this.form.enable();
+      }
+    );
   }
 }
