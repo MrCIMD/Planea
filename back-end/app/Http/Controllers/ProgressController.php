@@ -13,9 +13,9 @@ class ProgressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $progress = Progress::get();
+        $progress = Progress::search($request->search)->get();
         return response()->json(['success' => true, 'data' => $progress], 200);
     }
 

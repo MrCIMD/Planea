@@ -13,9 +13,12 @@ class TaskGroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $task_group = TaskGroup::get();
+        $task_group = TaskGroup
+            ::searchGroup($request->group)
+            ->searchTask($request->task)
+            ->with(['group', 'task'])->get();
         return response()->json(['success' => true, 'data' => $task_group], 200);
     }
 

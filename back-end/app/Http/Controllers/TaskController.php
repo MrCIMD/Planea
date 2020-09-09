@@ -13,9 +13,15 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $task = Task::get();
+        $task = Task
+            ::search($request->search)
+            ->searchProject($request->project)
+            ->searchStatu($request->statu)
+            ->searchProgress($request->progress)
+            ->searchPriority($request->priority)
+            ->with(['project', 'statu', 'progress', 'priority'])->get();
         return response()->json(['success' => true, 'data' => $task], 200);
     }
 

@@ -13,9 +13,12 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $groups = Group::get();
+        $groups = Group
+            ::search($request->search)
+            ->searchProject($request->panel)
+            ->with(['project'])->get();
         return response()->json(['success' => true, 'data' => $groups], 200);
     }
 

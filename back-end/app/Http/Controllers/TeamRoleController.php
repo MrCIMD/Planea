@@ -13,9 +13,9 @@ class TeamRoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $team_role = TeamRole::get();
+        $team_role = TeamRole::search($request->search)->get();
         return response()->json(['success' => true, 'data' => $team_role], 200);
     }
 

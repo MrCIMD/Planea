@@ -13,9 +13,13 @@ class AssignedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $assigneds = Assigned::get();
+        $assigneds = Assigned
+            ::searchTask($request->task)
+            ->searchUser($request->user)
+            ->with(['task', 'user'])->get();
+        
         return response()->json(['success' => true, 'data' => $assigneds], 200);
     }
 

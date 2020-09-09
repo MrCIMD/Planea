@@ -13,9 +13,12 @@ class SmallTaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $small_task = SmallTask::get();
+        $small_task = SmallTask
+            ::search($request->search)
+            ->searchTask($request->task)
+            ->with(['task'])->get();
         return response()->json(['success' => true, 'data' => $small_task], 200);
     }
 

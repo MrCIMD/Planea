@@ -13,10 +13,14 @@ class UserPanelPermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user_panel_permission = UserPanelPermission::get();
-        return response()->json(['success' => true, 'data' => $user_panel], 200);
+        $user_panel_permission = UserPanelPermission
+            ::searchProject($request->project)
+            ->searchUser($request->user)
+            ->searchPermission($request->permission)
+            ->with(['project', 'user', 'permission'])->get();
+        return response()->json(['success' => true, 'data' => $user_panel_permission], 200);
     }
 
     /**

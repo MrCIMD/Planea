@@ -13,9 +13,12 @@ class TaskArchiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $task_archive = TaskArchive::get();
+        $task_archive = TaskArchive
+            ::searchArchive($request->archive)
+            ->searchTask($request->task)
+            ->with(['archive', 'task'])->get();
         return response()->json(['success' => true, 'data' => $task_archive], 200);
     }
 

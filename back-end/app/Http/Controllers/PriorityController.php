@@ -13,9 +13,9 @@ class PriorityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $priority = Priority::get();
+        $priority = Priority::search($request->search)->get();
         return response()->json(['success' => true, 'data' => $priority], 200);
     }
 

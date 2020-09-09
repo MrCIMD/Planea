@@ -13,9 +13,9 @@ class TaskStatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $task_status = TaskStatus::get();
+        $task_status = TaskStatus::search($request->search)->get();
         return response()->json(['success' => true, 'data' => $task_status], 200);
     }
 

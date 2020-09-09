@@ -13,9 +13,9 @@ class PanelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $panels = Panel::get();
+        $panels = Panel::search($request->search)->get();
         return response()->json(['success' => true, 'data' => $panels], 200);
     }
 

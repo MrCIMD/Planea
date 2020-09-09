@@ -13,9 +13,14 @@ class UserPanelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user_panel = UserPanel::get();
+        $user_panel = UserPanel
+            ::searchPanel($request->panel)
+            ->searchUser($request->user)
+            ->searchTeamRole($request->teamrole)
+            ->with(['project', 'user', 'teamRole'])->get();
+
         return response()->json(['success' => true, 'data' => $user_panel], 200);
     }
 

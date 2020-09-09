@@ -14,15 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'api','prefix' => 'account'], 
+Route::group(
+    ['middleware' => 'api', 'prefix' => 'account'],
     function ($router) {
         Route::post('login', 'UserController@login');
         Route::post('register', 'UserController@register');
         Route::post('logout', 'UserController@logout');
         Route::post('refresh', 'UserController@refresh');
-});
+    }
+);
 
-Route::group(['middleware' => ['jwt.verify']], function() {
+Route::group(['middleware' => ['jwt.verify']], function () {
     Route::apiResources([
         'archive' => 'ArchiveController',
         'assigned' => 'AssignedController',
@@ -36,6 +38,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
         'task-archive' => 'TaskArchiveController',
         'task' => 'TaskController',
         'task-group' => 'TaskGroupController',
+        'task-statu' => 'TaskStatusController',
         'team-role' => 'TeamRoleController',
         'user-panel' => 'UserPanelController',
         'user-panel-permission' => 'UserPanelPermissionController'

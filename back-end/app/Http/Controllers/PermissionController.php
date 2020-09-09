@@ -13,9 +13,9 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $permission = Permission::get();
+        $permission = Permission::search($request->search)->get();
         return response()->json(['success' => true, 'data' => $permission], 200);
     }
 

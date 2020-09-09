@@ -13,9 +13,13 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $comment = Comment::get();
+        $comment = Comment
+            ::search($request->search)
+            ->searchTask($request->task)
+            ->searchUser($request->user)
+            ->with(['task', 'user'])->get();
         return response()->json(['success' => true, 'data' => $comment], 200);
     }
 
